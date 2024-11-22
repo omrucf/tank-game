@@ -7,8 +7,10 @@
 
 
 ## Course:
-Name: Advanced Programming in Java
+Name: Advanced Programming in Java 
+
 Institute: The American University in Cairo (AUC)
+
 Instructor: Ghada Hassan
 
 
