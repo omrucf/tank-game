@@ -64,7 +64,7 @@ public class GamePanel extends JPanel implements KeyListener {
             if (Math.random() > 0.5) {
                 mines.add(new Mine((int) (Math.random() * 400), (int) (Math.random() * 250)));
             } else {
-                mines.add(new Mine((int) (Math.random() * 400 + 400), (int) (Math.random() * 250 + 150)));
+                mines.add(new Mine((int) (Math.random() * 400 + 300), (int) (Math.random() * 250 + 100)));
             }
 
         }
