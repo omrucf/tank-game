@@ -15,6 +15,7 @@ public class GamePanel extends JPanel implements KeyListener {
     private static final long serialVersionUID = 1L;
     private Tank tank;
     private House house;
+    private HealthBar hb;
     private ArrayList<Mine> mines;
     private boolean gameRunning = true;
     private String gameOverMessage = "";
@@ -42,26 +43,30 @@ public class GamePanel extends JPanel implements KeyListener {
     }
 
     private void initializeGame() {
-        tank = new Tank(600, 400);
-        house = new House(100, 300, tank, aggrs);
+
+        house = new House(100, 300, null, aggrs);
         mountain = new Obstacle(600, 100);
+
+        tank = new Tank(600, 400, house, mountain, null);
+
+        hb = new HealthBar(tank.getHealth());
+
+        tank.sethealthbar(hb);
+
+        house.setTank(tank);
 
         mines = new ArrayList<>();
         // mines.add(new Mine(300, 200));
         // mines.add(new Mine(400, 150));
         // mines.add(new Mine(150, 100));
 
-
         for (int i = 0; i < mines_c; i++) {
-            if(Math.random() > 0.5)
-            {
+            if (Math.random() > 0.5) {
                 mines.add(new Mine((int) (Math.random() * 400), (int) (Math.random() * 250)));
-            }
-            else
-            {
+            } else {
                 mines.add(new Mine((int) (Math.random() * 400 + 400), (int) (Math.random() * 250 + 150)));
             }
-            
+
         }
     }
 
@@ -107,7 +112,7 @@ public class GamePanel extends JPanel implements KeyListener {
 
         for (Missile missile : house.getMissiles()) {
             if (missile.isActive()
-                    && checkCollision(missile.getX(), missile.getY(), tank.getX(), tank.getY(), 10, 20)) {
+                    && checkCollision(missile.getX(), missile.getY(), tank.getX(), tank.getY() + 40, 10, 30)) {
                 missile.deactivate();
                 tank.takeDamage();
                 if (tank.getHealth() <= 0) {
@@ -122,9 +127,10 @@ public class GamePanel extends JPanel implements KeyListener {
             }
         }
 
-        if (checkCollision(tank.getX(), tank.getY(), mountain.getX(), mountain.getY(), 20, 50)) {
-            endGame("Game Over! You hit an obstacle.");
-        }
+        // if (checkCollision(tank.getX(), tank.getY(), mountain.getX(),
+        // mountain.getY(), 20, 50)) {
+        // endGame("Game Over! You hit an obstacle.");
+        // }
     }
 
     private boolean checkCollision(int x1, int y1, int x2, int y2, int radius1, int radius2) {
@@ -151,6 +157,8 @@ public class GamePanel extends JPanel implements KeyListener {
                 mine.draw(g);
             }
             mountain.draw(g);
+            hb.setBounds(10, 10, 200, 30); // Position the health bar
+            hb.paint(g); // Render the health bar
         } else {
             g.setFont(new Font("Arial", Font.BOLD, 30));
             g.setColor(Color.BLACK);

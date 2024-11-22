@@ -32,6 +32,10 @@ public class House {
         }).start();
     }
 
+    public void setTank(Tank tank) {
+        this.tank = tank;
+    }
+
     public void fireMissile() {
         int deltaX = tank.getX() - can_x;
         int deltaY = tank.getY() - can_y;

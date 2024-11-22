@@ -11,6 +11,10 @@ public class Tank {
     private ArrayList<Missile> missiles;
     private Toolkit toolkit = Toolkit.getDefaultToolkit();
     private Image tankImage = toolkit.getImage("def_tank.png");
+    private House h;
+    private Obstacle o;
+    private HealthBar hb;
+    
 
 
     // Rotation cooldown in milliseconds
@@ -21,16 +25,27 @@ public class Tank {
     private final long missileCooldown = 500;
     private long lastMissileTime = 0;
 
-    public Tank(int x, int y) {
+    public Tank(int x, int y, House h, Obstacle o, HealthBar hb) {
         this.x = x;
         this.y = y;
         this.direction = 6;
         this.health = 3;
         this.missiles = new ArrayList<>();
+        this.h = h;
+        this.o = o;
+        this.hb = hb;
 
     }
 
+    public void sethealthbar(HealthBar hb)
+    {
+        this.hb = hb;
+    }
+
     public void moveForward(int maxWidth, int maxHeight) {
+
+        int oldX = x;
+        int oldY = y;
         switch (direction) {
             case 0 -> y = Math.max(0, y - speed);
             case 1 -> {
@@ -53,9 +68,21 @@ public class Tank {
                 y = Math.max(0, y - speed);
             }
         }
+
+        if (h.getX() < x + 50 && h.getX() + 100 > x && h.getY() < y + 50 && h.getY() + 100 > y) {
+            x = oldX;
+            y = oldY;
+        }
+        if (o.getX() < x + 50 && o.getX() + 200 > x && o.getY() < y + 50 && o.getY() + 120 > y) {
+            x = oldX;
+            y = oldY;
+        }
     }
 
     public void moveBackward(int maxWidth, int maxHeight) {
+        int oldX = x;
+        int oldY = y;
+
         switch (direction) {
             case 0 -> y = Math.min(maxHeight, y + speed);
             case 1 -> {
@@ -77,6 +104,14 @@ public class Tank {
                 x = Math.min(maxWidth, x + speed);
                 y = Math.min(maxHeight, y + speed);
             }
+        }
+        if (h.getX() < x + 50 && h.getX() + 100 > x && h.getY() < y + 50 && h.getY() + 100 > y) {
+            x = oldX;
+            y = oldY;
+        }
+        if (o.getX() < x + 50 && o.getX() + 200 > x && o.getY() < y + 50 && o.getY() + 120 > y) {
+            x = oldX;
+            y = oldY;
         }
     }
 
@@ -153,6 +188,7 @@ public class Tank {
 
     public void takeDamage() {
         health--;
+        hb.setHealth(health);
         System.out.println("Tank hit! Remaining health: " + health);
     }
 
