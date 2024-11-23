@@ -60,7 +60,7 @@ public class MainGame {
             JButton startButton = new JButton("Start Game");
             startButton.setFont(new Font("Arial", Font.BOLD, 18));
             startButton.setBackground(Color.GREEN);
-            startButton.setForeground(Color.WHITE);
+            startButton.setForeground(Color.BLACK);
             startButton.setFocusPainted(false);
             gbc.gridx = 0;
             gbc.gridy = 3;
