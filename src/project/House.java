@@ -96,8 +96,8 @@ public class House {
 
     public void draw(Graphics g) {
         Toolkit toolkit = Toolkit.getDefaultToolkit();
-        Image houseImage = toolkit.getImage("house.png");
-        Image cannonImage = toolkit.getImage("cannon.png");
+        Image houseImage = toolkit.getImage("imgs/house.png");
+        Image cannonImage = toolkit.getImage("imgs/cannon.png");
         g.drawImage(houseImage, x, y, 150, 150, null);
         g.drawImage(cannonImage, can_x, can_y, 75, 60, null);
 

@@ -19,7 +19,7 @@ public class Obstacle {
 
     public void draw(Graphics g) {
         Toolkit toolkit = Toolkit.getDefaultToolkit();
-        Image mountainImage = toolkit.getImage("mountain.png");
+        Image mountainImage = toolkit.getImage("imgs/mountain.png");
         g.drawImage(mountainImage, x, y, 200, 120, null);
     }
 }

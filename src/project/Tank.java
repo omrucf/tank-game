@@ -10,7 +10,7 @@ public class Tank {
     private final int speed = 1;
     private ArrayList<Missile> missiles;
     private Toolkit toolkit = Toolkit.getDefaultToolkit();
-    private Image tankImage = toolkit.getImage("def_tank.png");
+    private Image tankImage = toolkit.getImage("imgs/def_tank.png");
     private House h;
     private Obstacle o;
     private HealthBar hb;
@@ -122,14 +122,14 @@ public class Tank {
             lastRotationTime = currentTime;
 
             switch (direction) {
-                case 0 -> tankImage = toolkit.getImage("up_tank.png");
-                case 1 -> tankImage = toolkit.getImage("up_rt_tank.png");
-                case 2 -> tankImage = toolkit.getImage("rt_tank.png");
-                case 3 -> tankImage = toolkit.getImage("dn_rt_tank.png");
-                case 4 -> tankImage = toolkit.getImage("down_tank.png");
-                case 5 -> tankImage = toolkit.getImage("dn_lt_tank.png");
-                case 6 -> tankImage = toolkit.getImage("def_tank.png");
-                case 7 -> tankImage = toolkit.getImage("up_lt_tank.png");
+                case 0 -> tankImage = toolkit.getImage("imgs/up_tank.png");
+                case 1 -> tankImage = toolkit.getImage("imgs/up_rt_tank.png");
+                case 2 -> tankImage = toolkit.getImage("imgs/rt_tank.png");
+                case 3 -> tankImage = toolkit.getImage("imgs/dn_rt_tank.png");
+                case 4 -> tankImage = toolkit.getImage("imgs/down_tank.png");
+                case 5 -> tankImage = toolkit.getImage("imgs/dn_lt_tank.png");
+                case 6 -> tankImage = toolkit.getImage("imgs/def_tank.png");
+                case 7 -> tankImage = toolkit.getImage("imgs/up_lt_tank.png");
             }
         }
     }
@@ -141,14 +141,14 @@ public class Tank {
             lastRotationTime = currentTime;
 
             switch (direction) {
-                case 0 -> tankImage = toolkit.getImage("up_tank.png");
-                case 1 -> tankImage = toolkit.getImage("up_rt_tank.png");
-                case 2 -> tankImage = toolkit.getImage("rt_tank.png");
-                case 3 -> tankImage = toolkit.getImage("dn_rt_tank.png");
-                case 4 -> tankImage = toolkit.getImage("down_tank.png");
-                case 5 -> tankImage = toolkit.getImage("dn_lt_tank.png");
-                case 6 -> tankImage = toolkit.getImage("def_tank.png");
-                case 7 -> tankImage = toolkit.getImage("up_lt_tank.png");
+                case 0 -> tankImage = toolkit.getImage("imgs/up_tank.png");
+                case 1 -> tankImage = toolkit.getImage("imgs/up_rt_tank.png");
+                case 2 -> tankImage = toolkit.getImage("imgs/rt_tank.png");
+                case 3 -> tankImage = toolkit.getImage("imgs/dn_rt_tank.png");
+                case 4 -> tankImage = toolkit.getImage("imgs/down_tank.png");
+                case 5 -> tankImage = toolkit.getImage("imgs/dn_lt_tank.png");
+                case 6 -> tankImage = toolkit.getImage("imgs/def_tank.png");
+                case 7 -> tankImage = toolkit.getImage("imgs/up_lt_tank.png");
             }
         }
     }

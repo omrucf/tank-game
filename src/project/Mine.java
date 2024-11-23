@@ -20,7 +20,7 @@ public class Mine {
 
     public void draw(Graphics g) {
         Toolkit toolkit = Toolkit.getDefaultToolkit();
-        Image mineImage = toolkit.getImage("bomb.png"); // Path to mine image
+        Image mineImage = toolkit.getImage("imgs/bomb.png"); // Path to mine image
         g.drawImage(mineImage, x, y, 70, 70, null); // Adjust size and position
     }
 }
