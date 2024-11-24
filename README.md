@@ -43,4 +43,4 @@ while moving the cannon will try to aim near you by shooting in 8 different dire
 
 ### Demo
 
-![Starting Screen][imgs/startingscreenDemo.jpg]
+![Starting Screen](imgs/startingscreenDemo.jpg)
