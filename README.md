@@ -39,3 +39,8 @@ Instructor: Ghada Hassan
 - use the space key to shoot
 
 while moving the cannon will try to aim near you by shooting in 8 different directions and choosing the closest one to you
+
+
+### Demo
+
+![Starting Screen][imgs/startingscreenDemo.jpg]
